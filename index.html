@@ -26,21 +26,33 @@
         padding: 50px 0;
     }
     .button {
-        color: yellow;
         cursor: pointer;
         position: absolute;
         z-index: 2;
         text-align: center;
         transition-duration: 1s;
         top: 45%;
-        font-size: 30px;
-        font-family: sans-serif;
         border: solid 1px yellow;
         padding: 5px;
     }
     .button:hover {
-        background-color: yellow;
+        background-color: yellow;       
+    }
+    .button-text, input {
+        color: yellow;
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+    .button-text:hover {
         color: black;
+    }
+    input {
+        background: transparent;
+        border: none;
+        width: 140px;
+        text-align: center;
+        color: pink;
+        cursor: pointer;
     }
     .text {
         position: absolute;
@@ -61,6 +73,11 @@
         bottom: 0%;
         background-color: black;
     }
+    @media only screen and (max-width: 600px) {
+        p {
+            font-size: 14px;
+        }
+    }
 
 </style>
 </head>
@@ -69,7 +86,7 @@
         <p>Every day I wake up looking at the ceiling wondering if it’s ever going to change. Maybe one day if I beg hard enough a new view will be present when my eyes open. But this morning is not that day. So I live my day with hope that tomorrow will bring a new ceiling. But today is different. The ceiling is the same but there’s something else. What is it? Instead of using my eyes, I use my ears. Yes that sound. It’s coming from somewhere. It doesn’t matter. Its music. Music I’ve never heard of. I look around but I can’t see it. Is it coming from the next room? I enter through the door. It’s the same next door room as it’s always has been. The volume doesn’t change. It’s no more or less than when I awoke. Is it coming from the floors? I pull out the floor boards to reveal dust and bugs that are frightened by the light. No the music isn’t different here either. I’m about to tear out the ceiling when I see the time. I have to go. I have to go somewhere. I have to go do my routine. I grab my jacket and leave. The streets are hot as ever and the moon is pale. Even outside I still here that music. I look around. A family walks past me. A mother, a father, a daughter, a son, and a baby. All holding hands. They look normal and walk off beat from the music. I have no time to ask about the music. I’m late for the routine. The door sticks when I open it so it takes a bit of force. There stands the boss. Voice is annoying and loud. Complains how late I am. Says some other rude stuff. I don’t want to be here. This is not the spot. I’m so lost. Why am I here? It’s terrible. Gotta do something. Gotta get out of here. I leave. The door sticks shut permanently behind me. I’m on the streets walking. Following that music. Seeing where it leads. I’m entering a new room filled with so many people. I spot a beautiful human. I smile and they laugh. I feel like everything’s in its right place. I say a joke and everyone laughs. I grab hold of their hands and we’re running out through the door. I’m crossing roads, going over bridges, climbing up steps, swimming over oceans, and jumping over clouds. Now I’m older and a different person. Smarter and wiser. Younger and faster. I feel strength I’ve never knew I had. I can do anything that I dream. Dreams are no longer dreams, they have become tasks that I will achieve. Nothing is out of bounds. Anything is obtainable. But clouds still pass. The sun still disappears and the rain still pours. Shit still flows in the sewage of the streets. Can’t be 100% all the time. Oh no everything’s going dark. Nothing is good enough. It’s never enough. Why am I still miserable after all this? Nothing has changed. I can’t believe this. What was the point of all that. I can’t remember any of it. All I have to show are credit card bills and constant exhaustion. Oh god what is this. Everything has changed but nothing has changed. Then my ears hear that beat. It’s that music coming from not the floorboards. What is it saying? My foot is moving with no control. Yes I see it now. My feet are tapping uncontrollably on the floor. A little to the left, a little to the right. And my arms are moving, above my head and then all around me. Now I notice. My head is moving up and down with that sweet beat. I’m dancing to the music. I’ve never felt so alive. Clarity is so clean. I see everything that needs to be seen: nothing. Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? Who’s playing that fine fine music? I fall asleep listening to your tunes. </p>
     </div>
     <div class=container>
-        <div class="button" id="myButton" onclick="playVid()" type="button">FREE DOSE OF GOOD TIMES<br>click here</div>
+        <div class="button" id="myButton" onclick="playVid()" type="button"><span class="button-text">HEY <input type="text" id="randomText"> TAKE A WALK ON THE WILD SIDE</span></div>
 
         <video id="myVideo" playsinline>
             <source src="video/video.webm" type="video/webm">
@@ -94,6 +111,24 @@
     function myHandler(e) {
         button.style.display = "block";
     }
+
+    var texts = [
+        "HONEY",
+        "BABE",
+        "SUGAR",
+        "LOO LOO",
+        "DOG",
+        "YOU",
+        "SEXY",
+        "SWEETY",
+        "LOVE",
+        "BUB"
+    ];
+    var inst = setInterval(change, 500);
+    function change() {
+        document.getElementById("randomText").value = texts[Math.floor(Math.random()*texts.length)];
+    }
+
 </script>
 
 </body>
